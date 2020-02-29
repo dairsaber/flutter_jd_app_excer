@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import './tab_list.dart';
-import 'package:flutter_jd_app/utils/index.dart';
 
 class Tabs extends StatefulWidget {
   Tabs({Key key}) : super(key: key);
@@ -20,8 +19,6 @@ class _TabsState extends State<Tabs> {
 
   @override
   Widget build(BuildContext context) {
-    //初始化适配器
-    initPage(context);
     return Scaffold(
       appBar: AppBar(title: Text("home")),
       body: Center(child: TabsConfig.tabsConfigs[_currentIndex]["page"]),

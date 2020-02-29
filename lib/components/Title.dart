@@ -7,12 +7,13 @@ class MyTitle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(left: setWidth(10)),
+      margin: EdgeInsets.only(left: ScreenAdapter.width(20)),
       decoration: BoxDecoration(
           border: Border(
-              left: BorderSide(color: Colors.red, width: setWidth(4.0)))),
+              left: BorderSide(
+                  color: Colors.red, width: ScreenAdapter.width(4.0)))),
       child: Padding(
-        padding: EdgeInsets.only(left: setWidth(10)),
+        padding: EdgeInsets.only(left: ScreenAdapter.width(20)),
         child: Text(
           label,
           style: TextStyle(color: Colors.black54),
