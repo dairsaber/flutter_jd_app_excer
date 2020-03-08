@@ -34,7 +34,7 @@ class _TabsState extends State<Tabs> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("home")),
+      // appBar: AppBar(title: Text("home")),
       body: PageView(
         children: _pageList,
         controller: this._pageController,

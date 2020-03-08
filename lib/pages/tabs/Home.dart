@@ -44,12 +44,14 @@ class _HomeState extends State<Home> with AutomaticKeepAliveClientMixin {
     {"url": "https://www.itying.com/images/flutter/slide02.jpg"},
     {"url": "https://www.itying.com/images/flutter/slide03.jpg"},
   ];
+
   @override
   bool get wantKeepAlive => true;
 
   @override
   Widget build(BuildContext context) {
     ScreenAdapter.init(context);
+    super.build(context);
     return ListView(children: <Widget>[
       MySwiper(
         items: _imgList,

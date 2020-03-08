@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
 import '../pages/tabs/Tabs.dart';
+import '../pages/productionList/ProductionList.dart';
 
 typedef Widget BuildFunc(BuildContext context);
-final Map<String, BuildFunc> _routes = {'/': (BuildContext context) => Tabs()};
+
+final Map<String, BuildFunc> _routes = {
+  '/': (BuildContext context) => Tabs(),
+  '/productionList': (BuildContext context, { arguments}) =>
+      ProductionList(arguments: arguments)
+};
 
 class Routes {
   static Route onRoute(RouteSettings settings) {
