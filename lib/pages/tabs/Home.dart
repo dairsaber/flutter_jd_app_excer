@@ -37,12 +37,16 @@ List<Widget> getHotItems() {
   return result;
 }
 
-class _HomeState extends State<Home> {
+//AutomaticKeepAliveClientMixin 用于保存页面状态
+class _HomeState extends State<Home> with AutomaticKeepAliveClientMixin {
   final List<Map> _imgList = [
     {"url": "https://www.itying.com/images/flutter/slide01.jpg"},
     {"url": "https://www.itying.com/images/flutter/slide02.jpg"},
     {"url": "https://www.itying.com/images/flutter/slide03.jpg"},
   ];
+  @override
+  bool get wantKeepAlive => true;
+
   @override
   Widget build(BuildContext context) {
     ScreenAdapter.init(context);

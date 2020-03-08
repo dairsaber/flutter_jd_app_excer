@@ -10,10 +10,24 @@ class Tabs extends StatefulWidget {
 
 class _TabsState extends State<Tabs> {
   int _currentIndex = 0;
+  PageController _pageController;
+  //获取配置的tab按钮
   final _navItems = TabsConfig.getTabItems();
+  final _pageList = TabsConfig.getPages();
   void _onTabTap(index) {
     this.setState(() {
       this._currentIndex = index;
+      this._pageController.animateToPage(index,
+          duration: Duration(milliseconds: 200), curve: Curves.easeInOut);
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    setState(() {
+      this._pageController =
+          new PageController(initialPage: this._currentIndex);
     });
   }
 
@@ -21,7 +35,10 @@ class _TabsState extends State<Tabs> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text("home")),
-      body: Center(child: TabsConfig.tabsConfigs[_currentIndex]["page"]),
+      body: PageView(
+        children: _pageList,
+        controller: this._pageController,
+      ),
       bottomNavigationBar: BottomNavigationBar(
         items: _navItems,
         type: BottomNavigationBarType.fixed,

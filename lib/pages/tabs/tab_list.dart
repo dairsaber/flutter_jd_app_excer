@@ -38,4 +38,8 @@ class TabsConfig {
         .map((item) => item['tabItem'] as BottomNavigationBarItem)
         .toList();
   }
+
+  static List<Widget> getPages() {
+    return tabsConfigs.map((item) => item['page'] as Widget).toList();
+  }
 }
