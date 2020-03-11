@@ -1,13 +1,21 @@
 import 'package:flutter/material.dart';
 import '../pages/tabs/Tabs.dart';
 import '../pages/productionList/ProductionList.dart';
+import '../pages/keytest/swap_color1.dart';
+import '../pages/keytest/swap_color2.dart';
+import '../pages/keytest/swap_color3.dart';
+import '../pages/keytest/swap_color4.dart';
 
 typedef Widget BuildFunc(BuildContext context);
 
 final Map<String, BuildFunc> _routes = {
   '/': (BuildContext context) => Tabs(),
-  '/productionList': (BuildContext context, { arguments}) =>
-      ProductionList(arguments: arguments)
+  '/productionList': (BuildContext context, {arguments}) =>
+      ProductionList(arguments: arguments),
+  '/color1': (BuildContext context) => SwapColorDemo1(),
+  '/color2': (BuildContext context) => SwapColorDemo2(),
+  '/color3': (BuildContext context) => SwapColorDemo3(),
+  '/color4': (BuildContext context) => SwapColorDemo4(),
 };
 
 class Routes {
