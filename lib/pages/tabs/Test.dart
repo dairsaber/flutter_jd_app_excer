@@ -38,6 +38,19 @@ class _TestState extends State<Test> {
   double _double;
   Map _map;
   List _list;
+  @override
+  void initState() {
+    super.initState();
+    _init();
+  }
+
+  Future _init() async {
+    _int = await StorageUtils.getValue<int>('int');
+    _double = await StorageUtils.getValue<double>('double');
+    _map = await StorageUtils.getValue<Map>('Map');
+    _list = await StorageUtils.getValue<List>('List');
+    this.setState(() {});
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -52,33 +65,37 @@ class _TestState extends State<Test> {
           ),
           RaisedButton(
             child: Text("本地存储中获取int数据"),
-            onPressed: () {
-              this.setState(() async {
-                _int = await StorageUtils.getValue<int>("int");
+            onPressed: () async {
+              final myInt = await StorageUtils.getValue<int>("int");
+              this.setState(() {
+                _int = myInt;
               });
             },
           ),
           RaisedButton(
             child: Text("本地存储中获取doublue数据"),
-            onPressed: () {
-              this.setState(() async {
-                _double = await StorageUtils.getValue<double>("double");
+            onPressed: () async {
+              final myDouble = await StorageUtils.getValue<double>("double");
+              this.setState(() {
+                _double = myDouble;
               });
             },
           ),
           RaisedButton(
             child: Text("本地存储中获取map数据"),
-            onPressed: () {
-              this.setState(() async {
-                _map = await StorageUtils.getValue<Map>("Map");
+            onPressed: () async {
+              final myMap = await StorageUtils.getValue<Map>("Map");
+              this.setState(() {
+                _map = myMap;
               });
             },
           ),
           RaisedButton(
             child: Text("本地存储中获取List数据"),
-            onPressed: () {
-              this.setState(() async {
-                _list = await StorageUtils.getValue<List>("List");
+            onPressed: () async {
+              final myList = await StorageUtils.getValue<List>("List");
+              this.setState(() {
+                _list = myList;
               });
             },
           ),
