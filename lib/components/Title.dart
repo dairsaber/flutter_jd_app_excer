@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_jd_app/utils/index.dart';
+import '../utils/screen_adapter.dart';
 
 class MyTitle extends StatelessWidget {
   final String label;

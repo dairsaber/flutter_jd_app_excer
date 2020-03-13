@@ -38,6 +38,12 @@ class _TabsState extends State<Tabs> {
       body: PageView(
         children: _pageList,
         controller: this._pageController,
+        //当tab页面左右滑动切换的时候匹配tab按钮的选中状态
+        onPageChanged: (int index){
+          this.setState((){
+            this._currentIndex = index;
+          });
+        },
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: _navItems,

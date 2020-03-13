@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_jd_app/components/index.dart';
-import 'package:flutter_jd_app/utils/index.dart';
+import '../../components/index.dart';
+import '../../utils/screen_adapter.dart';
 
 final _commonHeight = ScreenAdapter.height(20);
 final _commonWidth = ScreenAdapter.width(20);
