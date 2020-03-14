@@ -5,6 +5,7 @@ import '../pages/keytest/swap_color1.dart';
 import '../pages/keytest/swap_color2.dart';
 import '../pages/keytest/swap_color3.dart';
 import '../pages/keytest/swap_color4.dart';
+import '../pages/productionDetail/ProductionDetail.dart';
 
 typedef Widget BuildFunc(BuildContext context);
 
@@ -16,6 +17,8 @@ final Map<String, BuildFunc> _routes = {
   '/color2': (BuildContext context) => SwapColorDemo2(),
   '/color3': (BuildContext context) => SwapColorDemo3(),
   '/color4': (BuildContext context) => SwapColorDemo4(),
+  '/productionDetail': (BuildContext context, {Map arguments}) =>
+      ProductionDetail(arguments: arguments)
 };
 
 class Routes {

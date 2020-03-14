@@ -13,26 +13,32 @@ class Home extends StatefulWidget {
   _HomeState createState() => _HomeState();
 }
 
-List<Widget> getHotItems() {
+List<Widget> getHotItems(BuildContext context) {
   List<Widget> result = [];
   for (int i = 0; i < 10; i++) {
-    result.add(Container(
-        width: ScreenAdapter.width(220.0),
-        height: ScreenAdapter.width(250.0),
-        padding: EdgeInsets.only(right: _commonWidth),
-        child: Column(children: <Widget>[
-          Container(
-            height: _commonItemSize,
-            width: _commonItemSize,
-            child: Image.network(
-                "https://www.itying.com/images/flutter/hot${i + 1}.jpg",
-                fit: BoxFit.cover),
-          ),
-          Container(
-            height: ScreenAdapter.width(50),
-            child: Center(child: Text('第$i张')),
-          )
-        ])));
+    result.add(InkWell(
+      onTap: () {
+        Navigator.pushNamed(context, "/productionDetail",
+            arguments: {"index": i});
+      },
+      child: Container(
+          width: ScreenAdapter.width(220.0),
+          height: ScreenAdapter.width(250.0),
+          padding: EdgeInsets.only(right: _commonWidth),
+          child: Column(children: <Widget>[
+            Container(
+              height: _commonItemSize,
+              width: _commonItemSize,
+              child: Image.network(
+                  "https://www.itying.com/images/flutter/hot${i + 1}.jpg",
+                  fit: BoxFit.cover),
+            ),
+            Container(
+              height: ScreenAdapter.width(50),
+              child: Center(child: Text('第$i张')),
+            )
+          ])),
+    ));
   }
   return result;
 }
@@ -64,7 +70,7 @@ class _HomeState extends State<Home> with AutomaticKeepAliveClientMixin {
             itemExtent: ScreenAdapter.width(220.0),
             height: ScreenAdapter.width(250.0),
             padding: EdgeInsets.fromLTRB(_commonWidth, 0, _commonWidth, 0)),
-        children: getHotItems(),
+        children: getHotItems(context),
       )
     ]);
   }
