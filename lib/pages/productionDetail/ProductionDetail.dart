@@ -28,6 +28,13 @@ _handleMenuSelected(TestMenu value) {
 }
 
 class _ProductionDetailState extends State<ProductionDetail> {
+  int _count = 0;
+  void _addCount(setModalState) {
+    setModalState(() {
+      _count++;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     ScreenAdapter.init(context);
@@ -106,30 +113,40 @@ class _ProductionDetailState extends State<ProductionDetail> {
                     showModalBottomSheet(
                         context: context,
                         builder: (context) {
-                          /// ! 为了解决在此modal在点击的时候关闭的尴尬境地 [onTap] 中return false
-                          return GestureDetector(
-                            onTap: () {
-                              return false;
+                          return StatefulBuilder(
+                            builder: (BuildContext context, setState) {
+                              /// ! 为了解决在此modal在点击的时候关闭的尴尬境地 [onTap] 中return false
+                              return GestureDetector(
+                                onTap: () {
+                                  return false;
+                                },
+                                child: Container(
+                                  child: Column(
+                                    children: <Widget>[
+                                      Text("01"),
+                                      Text("01"),
+                                      Text("01"),
+                                      Text("01"),
+                                      Text("01"),
+                                      Text("01"),
+                                      Text("01$_count"),
+                                      RaisedButton(
+                                        onPressed: () {
+                                          Navigator.of(context).pop();
+                                        },
+                                        child: Text("关闭modal"),
+                                      ),
+                                      RaisedButton(
+                                        onPressed: () {
+                                          _addCount(setState);
+                                        },
+                                        child: Text("改变modal中的状态+1"),
+                                      )
+                                    ],
+                                  ),
+                                ),
+                              );
                             },
-                            child: Container(
-                              child: Column(
-                                children: <Widget>[
-                                  Text("01"),
-                                  Text("01"),
-                                  Text("01"),
-                                  Text("01"),
-                                  Text("01"),
-                                  Text("01"),
-                                  Text("01"),
-                                  RaisedButton(
-                                    onPressed: () {
-                                      Navigator.of(context).pop();
-                                    },
-                                    child: Text("关闭modal"),
-                                  )
-                                ],
-                              ),
-                            ),
                           );
                         });
                   },
