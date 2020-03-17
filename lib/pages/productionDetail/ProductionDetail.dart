@@ -114,158 +114,161 @@ class _ProductionDetailState extends State<ProductionDetail>
             ),
           )),
       // ?对应tab显示的页面
-      body: TabBarView(controller: _tabController, children: <Widget>[
-        Text("01_${widget.arguments['index']}"),
-        // * 在这里实现底部弹出modal的选择框
-        Page2(),
-        Container(
-          child: Center(
-            child: RaisedButton(
-              onPressed: () async {
-                //自定义实现modal
-                // final result = await showDialog<bool>(
-                //     context: context,
-                //     builder: (context) {
-                //       return Material(
-                //         //创建透明层
-                //         type: MaterialType.transparency, //透明类型
-                //         child: Center(
-                //           //保证控件居中效果
-                //           child: SizedBox(
-                //               width: ScreenAdapter.width(420),
-                //               height: ScreenAdapter.height(300),
-                //               child: ClipRRect(
-                //                 borderRadius: BorderRadius.circular(8),
-                //                 child: Container(
-                //                     width: ScreenAdapter.width(420),
-                //                     decoration: BoxDecoration(
-                //                       color: Colors.white,
-                //                       // shape: BoxShape.circle,
-                //                     ),
-                //                     child: Column(children: <Widget>[
-                //                       Expanded(
-                //                         flex: 1,
-                //                         child: Center(
-                //                           child: Text("确定么?"),
-                //                         ),
-                //                       ),
-                //                       Row(
-                //                         children: <Widget>[
-                //                           Material(
-                //                             //! 这边用Material和Ink包裹用于解决InkWell在Container设置颜色之后无法显示波纹效果的情况
-                //                             child: Ink(
-                //                               child: InkWell(
-                //                                 child: Container(
-                //                                   height:
-                //                                       ScreenAdapter.height(
-                //                                           80),
-                //                                   width:
-                //                                       ScreenAdapter.width(
-                //                                           210),
-                //                                   child: Center(
-                //                                     child: Text("确定"),
-                //                                   ),
-                //                                 ),
-                //                                 onTap: () {
-                //                                   Navigator.of(context)
-                //                                       .pop(true);
-                //                                 },
-                //                               ),
-                //                             ),
-                //                           ),
-                //                           Material(
-                //                             child: Ink(
-                //                               child: InkWell(
-                //                                 child: Container(
-                //                                   height:
-                //                                       ScreenAdapter.height(
-                //                                           80),
-                //                                   width:
-                //                                       ScreenAdapter.width(
-                //                                           210),
-                //                                   child: Center(
-                //                                     child: Text("取消"),
-                //                                   ),
-                //                                 ),
-                //                                 onTap: () {
-                //                                   Navigator.of(context)
-                //                                       .pop(true);
-                //                                 },
-                //                               ),
-                //                             ),
-                //                           )
-                //                         ],
-                //                       )
-                //                     ])),
-                //               )),
-                //         ),
-                //       );
-                //     };
+      body: TabBarView(
+          physics: NeverScrollableScrollPhysics(),
+          controller: _tabController,
+          children: <Widget>[
+            Text("01_${widget.arguments['index']}"),
+            // * 在这里实现底部弹出modal的选择框
+            Page2(),
+            Container(
+              child: Center(
+                child: RaisedButton(
+                  onPressed: () async {
+                    //自定义实现modal
+                    // final result = await showDialog<bool>(
+                    //     context: context,
+                    //     builder: (context) {
+                    //       return Material(
+                    //         //创建透明层
+                    //         type: MaterialType.transparency, //透明类型
+                    //         child: Center(
+                    //           //保证控件居中效果
+                    //           child: SizedBox(
+                    //               width: ScreenAdapter.width(420),
+                    //               height: ScreenAdapter.height(300),
+                    //               child: ClipRRect(
+                    //                 borderRadius: BorderRadius.circular(8),
+                    //                 child: Container(
+                    //                     width: ScreenAdapter.width(420),
+                    //                     decoration: BoxDecoration(
+                    //                       color: Colors.white,
+                    //                       // shape: BoxShape.circle,
+                    //                     ),
+                    //                     child: Column(children: <Widget>[
+                    //                       Expanded(
+                    //                         flex: 1,
+                    //                         child: Center(
+                    //                           child: Text("确定么?"),
+                    //                         ),
+                    //                       ),
+                    //                       Row(
+                    //                         children: <Widget>[
+                    //                           Material(
+                    //                             //! 这边用Material和Ink包裹用于解决InkWell在Container设置颜色之后无法显示波纹效果的情况
+                    //                             child: Ink(
+                    //                               child: InkWell(
+                    //                                 child: Container(
+                    //                                   height:
+                    //                                       ScreenAdapter.height(
+                    //                                           80),
+                    //                                   width:
+                    //                                       ScreenAdapter.width(
+                    //                                           210),
+                    //                                   child: Center(
+                    //                                     child: Text("确定"),
+                    //                                   ),
+                    //                                 ),
+                    //                                 onTap: () {
+                    //                                   Navigator.of(context)
+                    //                                       .pop(true);
+                    //                                 },
+                    //                               ),
+                    //                             ),
+                    //                           ),
+                    //                           Material(
+                    //                             child: Ink(
+                    //                               child: InkWell(
+                    //                                 child: Container(
+                    //                                   height:
+                    //                                       ScreenAdapter.height(
+                    //                                           80),
+                    //                                   width:
+                    //                                       ScreenAdapter.width(
+                    //                                           210),
+                    //                                   child: Center(
+                    //                                     child: Text("取消"),
+                    //                                   ),
+                    //                                 ),
+                    //                                 onTap: () {
+                    //                                   Navigator.of(context)
+                    //                                       .pop(true);
+                    //                                 },
+                    //                               ),
+                    //                             ),
+                    //                           )
+                    //                         ],
+                    //                       )
+                    //                     ])),
+                    //               )),
+                    //         ),
+                    //       );
+                    //     };
 
-                //用系统自带的集中dailog
-                // final result = await showDialog<bool>(
-                //     context: context,
-                //     builder: (context) {
-                //       return AlertDialog(
-                //         title: Text("提示"),
-                //         content: Text("确定?"),
-                //         actions: <Widget>[
-                //           FlatButton(
-                //               child: Text(
-                //                 "确定",
-                //                 style: TextStyle(color: Colors.blueAccent),
-                //               ),
-                //               onPressed: () {
-                //                 Navigator.of(context).pop(true);
-                //               }),
-                //           FlatButton(
-                //               splashColor: Color.fromRGBO(255, 0, 0, 0.2),
-                //               child: Text(
-                //                 "取消",
-                //                 style: TextStyle(color: Colors.red),
-                //               ),
-                //               onPressed: () {
-                //                 Navigator.of(context).pop(false);
-                //               })
-                //         ],
-                //       );
-                //     });
+                    //用系统自带的集中dailog
+                    // final result = await showDialog<bool>(
+                    //     context: context,
+                    //     builder: (context) {
+                    //       return AlertDialog(
+                    //         title: Text("提示"),
+                    //         content: Text("确定?"),
+                    //         actions: <Widget>[
+                    //           FlatButton(
+                    //               child: Text(
+                    //                 "确定",
+                    //                 style: TextStyle(color: Colors.blueAccent),
+                    //               ),
+                    //               onPressed: () {
+                    //                 Navigator.of(context).pop(true);
+                    //               }),
+                    //           FlatButton(
+                    //               splashColor: Color.fromRGBO(255, 0, 0, 0.2),
+                    //               child: Text(
+                    //                 "取消",
+                    //                 style: TextStyle(color: Colors.red),
+                    //               ),
+                    //               onPressed: () {
+                    //                 Navigator.of(context).pop(false);
+                    //               })
+                    //         ],
+                    //       );
+                    //     });
 
-                //苹果风的确认框
-                final result = await showCupertinoDialog(
-                    context: context,
-                    builder: (context) {
-                      return CupertinoAlertDialog(
-                        title: Text("提示"),
-                        content: Text("确定?"),
-                        actions: <Widget>[
-                          FlatButton(
-                              child: Text(
-                                "确定",
-                                style: TextStyle(color: Colors.blueAccent),
-                              ),
-                              onPressed: () {
-                                Navigator.of(context).pop(true);
-                              }),
-                          FlatButton(
-                              splashColor: Color.fromRGBO(255, 0, 0, 0.2),
-                              child: Text(
-                                "取消",
-                                style: TextStyle(color: Colors.red),
-                              ),
-                              onPressed: () {
-                                Navigator.of(context).pop(false);
-                              })
-                        ],
-                      );
-                    });
-                print(result);
-              },
-              child: Text("弹出确认框"),
-            ),
-          ),
-        )
-      ]),
+                    //苹果风的确认框
+                    final result = await showCupertinoDialog(
+                        context: context,
+                        builder: (context) {
+                          return CupertinoAlertDialog(
+                            title: Text("提示"),
+                            content: Text("确定?"),
+                            actions: <Widget>[
+                              FlatButton(
+                                  child: Text(
+                                    "确定",
+                                    style: TextStyle(color: Colors.blueAccent),
+                                  ),
+                                  onPressed: () {
+                                    Navigator.of(context).pop(true);
+                                  }),
+                              FlatButton(
+                                  splashColor: Color.fromRGBO(255, 0, 0, 0.2),
+                                  child: Text(
+                                    "取消",
+                                    style: TextStyle(color: Colors.red),
+                                  ),
+                                  onPressed: () {
+                                    Navigator.of(context).pop(false);
+                                  })
+                            ],
+                          );
+                        });
+                    print(result);
+                  },
+                  child: Text("弹出确认框"),
+                ),
+              ),
+            )
+          ]),
       floatingActionButton: _currentIndex == 1
           ? FloatingActionButton(
               onPressed: () {
